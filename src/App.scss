@@ -1,0 +1,122 @@
+h1 {
+    text-align: center;
+}
+
+.add-image {
+    text-align: center;
+    input {
+        width: 60%;
+    }
+}
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    column-gap: 15px;
+    padding: 15px;
+}
+
+.card-columns {
+    display: grid;
+    row-gap: 15px;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(min-content, max-content);
+}
+
+.card {
+    position: relative;
+
+    & > img {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(197, 197, 197, 0.568);
+    }
+
+    .card-overlay {
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.219);
+        z-index: 10;
+    }
+
+    &:hover .card-overlay {
+        visibility: visible;
+    }
+
+    button {
+        font-size: 1rem;
+        border: none;
+        border-radius: 8px;
+        padding: 8px;
+        margin: 5px;
+        background-color: #fff;
+        opacity: 0.8;
+        line-height: 1rem;
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .size-buttons {
+        display: inline-block;
+    }
+
+    .categories {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        p {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.774);
+            border: 1px solid black;
+            padding: 0 5px;
+            margin: 2px 5px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            height: 25px;
+            line-height: 20px;
+            font-weight: bold;
+            span:hover {
+                cursor: pointer;
+            }
+        }
+        .add-category {
+            width: 25px;
+            border-radius: 50%;
+            text-align: center;
+
+            &:hover {
+                background-color: #fff;
+                cursor: pointer;
+            }
+        }
+        .input-container {
+            visibility: visible;
+            display: none;
+            grid-template-columns: minmax(0, min-content) auto auto;
+            background-color: #fff;
+            margin: 5px;
+            input {
+                border: none;
+                outline: none;
+            }
+            span {
+                padding: 0 3px;
+                &:hover {
+                    cursor: pointer;
+                    border-radius: 10px;
+                    &.submit {
+                        color: green;
+                    }
+                    &.cancel {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+}
+
